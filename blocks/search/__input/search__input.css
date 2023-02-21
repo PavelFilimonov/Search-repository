@@ -1,0 +1,14 @@
+.search__input {
+  padding: 1px 9px;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 2em;
+  line-height: 2em;
+  border: none;
+  border: 4px solid #ffffff;
+  box-sizing: border-box;
+}
+
+.search__input:hover {
+  border: 4px solid #e27beb;
+}

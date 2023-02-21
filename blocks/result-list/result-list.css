@@ -1,0 +1,6 @@
+.result-list {
+  display: flex;
+  flex-direction: column;
+  width: 503px;
+  list-style-type: none;
+}

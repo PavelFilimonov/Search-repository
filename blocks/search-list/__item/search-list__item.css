@@ -1,0 +1,13 @@
+.search-list__item {
+  padding: 0 0 9px 13px;
+  height: 44px;
+  background: #e3e3e3;
+  border: 2px solid #000000;
+  font-size: 1.25em;
+  line-height: 1.25em;
+}
+
+.search-list__item:hover {
+  background: #65cdf9;
+  cursor: pointer;
+}

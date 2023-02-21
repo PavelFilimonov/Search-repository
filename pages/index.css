@@ -1,0 +1,21 @@
+@import url(../vendor/rest.css);
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+@import url(../blocks/page/page.css);
+@import url(../blocks/app/app.css);
+@import url(../blocks/search/search.css);
+@import url(../blocks/input/input.css);
+@import url(../blocks/search/__input/search__input.css);
+@import url(../blocks/search-list/search-list.css);
+@import url(../blocks/search/__search-list/search__search-list.css);
+@import url(../blocks/item/item.css);
+@import url(../blocks/search-list/__item/search-list__item.css);
+
+@import url(../blocks/result/result.css);
+@import url(../blocks/result-list/result-list.css);
+@import url(../blocks/result/__result-list/result__result-list.css);
+@import url(../blocks/result-list/__item/result-list__item.css);
+
+@import url(../blocks/repo/repo.css);
+@import url(../blocks/repo/__btn/repo__btn.css);
+@import url(../blocks/btn-close/btn-close.css); ;

@@ -1,0 +1,6 @@
+.search-list {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  list-style-type: none;
+}
