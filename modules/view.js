@@ -36,6 +36,13 @@ export class View {
     return block;
   }
 
+  // Добавил ноду на случай, если результат поиска пустой
+  createEmptySearchMessage() {
+    const emptySearchMessage = this.createNode("li", "item", "empty-search");
+    emptySearchMessage.textContent = "По Вашему запросу ничего не найдено";
+    this.searchList.append(emptySearchMessage);
+  }
+
   createResultList(repositoryData) {
     const searchListItem = this.createNode("li", "item", "search-list__item");
     searchListItem.textContent = repositoryData.name;
@@ -61,7 +68,11 @@ export class View {
     repoData.append(repoName, repoOwner, repoStars, repoBtn);
 
     let resultListItem = this.createNode("li", "item", "result-list__item");
-    resultListItem.addEventListener("click", () => resultListItem.remove());
+
+    // При удалении ноды удаляю прослушку элемента при помощи once: true
+    resultListItem.addEventListener("click", () => resultListItem.remove(), {
+      once: true,
+    });
     resultListItem.append(repoData);
     this.resultList.append(resultListItem);
   }

@@ -2,24 +2,34 @@ export class Search {
   constructor(view) {
     this.view = view;
 
+    // Заменил type с "click" на "input"
     this.view.searchInput.addEventListener(
-      "keyup",
+      "input",
       this.debounce(this.searchRepositories.bind(this))
     );
   }
 
   async searchRepositories() {
-    if (this.view.searchInput.value) {
+    const searchValue = this.view.searchInput.value;
+    if (searchValue) {
       this.clearRepositories();
-      return await fetch(
-        `https://api.github.com/search/repositories?q=${this.view.searchInput.value}&per_page=5`
-      ).then((response) => {
-        response.json().then((response) => {
-          response.items.forEach((repository) => {
+      // Использовал блоки try, catch. Перестал использовать async/await с .then
+      try {
+        const response = await fetch(
+          `https://api.github.com/search/repositories?q=${searchValue}&per_page=5`
+        );
+        const data = await response.json();
+        if (data.items.length) {
+          await data.items.forEach((repository) => {
             this.view.createResultList(repository);
           });
-        });
-      });
+        } else {
+          // Добавляется нода, если результат поиска пустой
+          this.view.createEmptySearchMessage();
+        }
+      } catch (err) {
+        console.error(err);
+      }
     } else {
       this.clearRepositories();
     }
